@@ -11,5 +11,4 @@ def writeTable(valuesOfTable: List) -> None:
         print('|{:> 4d}|{:>7s}|'.format(sequence, names))
     print('______________')
 
-
 writeTable(data)
