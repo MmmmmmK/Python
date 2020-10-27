@@ -1,15 +1,16 @@
-# class Exception(Exception):
-#     def __init__(self):
-from typing import List, Union
+from typing import List, Union, Any, Tuple
 
 data: List[str] = ['Tom', 'Peter', 'Vasyl', 'Kola']
 line = '_' * 14
+rows = int(input('Введите количество элементов: '))
 
-def write_table(columns: Union[List[Any], Tuple[Any]], rows:Union[List[Union[List[Any], Tuple[Any]]], Tuple[Union[List[Any], Tuple[Any]]]]) -> None:
+
+def write_table(rows : Union[List[Union[List[Any], Tuple[Any]]], Tuple[Union[List[Any], Tuple[Any]]]], valuesOfTable : str) -> str:
     """Вырисовывание таблицы"""
-    print(line)
-    for sequence, names in enumerate(valuesOfTable):
-        print('|{:> 4d}|{:>7s}|'.format(sequence, names))
-    print(line)
+    answer = ' '
+    for sequence in range(rows):
+        answer += ('|{:> 4d}|{:>7s}|\n'.format(sequence + 1, valuesOfTable))
+    return line + answer + line
 
-writeTable(data)
+
+print(writeTable(rows, data))
